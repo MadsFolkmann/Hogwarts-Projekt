@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class Application {
     
     public void initApp() {
-        ArrayList<HogwartsStudent> hogwartsStudents = new DynamicArray<>();
-        ArrayList<HogwartsTeacher> hogwartsTeachers = new DynamicArray<>();
+        ArrayList<HogwartsStudent> hogwartsStudents = new ArrayList<>();
+        ArrayList <HogwartsTeacher> hogwartsTeachers = new ArrayList<>();
 
         // Creating Hogwarts Students
         HogwartsStudent student1 = new HogwartsStudent(1991, "Harry", "James", "Potter", House.GRYFFINDOR, true, new String[]{"Quidditch"});
@@ -34,6 +34,20 @@ public class Application {
         // Creating Courses
         Course potionsCourse = new Course(new Subject("Potions", 6, true), hogwartsTeachers.get(0), new Student[]{student1, student2, student3}, new TeachingMaterial[]{});
 
+         try {
+            Wand wand = new Wand(10.5, "Oak", "Phoenix Feather");
+            Textbook textbook = new Textbook("Advanced Potion-Making", "Libatius Borage", "Borgin and Burkes", 1999);
+            Tool cauldron = new Tool("Cauldron", "Standard size for potions");
+            Ingredient fluxweed = new Ingredient("Fluxweed", 2.0, "ounces");
+
+            potionsCourse.addTeachingMaterial(wand);
+            potionsCourse.addTeachingMaterial(textbook);
+            potionsCourse.addTeachingMaterial(cauldron);
+            potionsCourse.addTeachingMaterial(fluxweed);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         // Display information for Hogwarts Students
         System.out.println("Hogwarts Students:");
         for (int i = 0; i < hogwartsStudents.size(); i++) {

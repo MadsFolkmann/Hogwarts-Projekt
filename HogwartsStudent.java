@@ -1,54 +1,44 @@
 import java.util.Arrays;
 
-public class HogwartsStudent extends Student {
+public class HogwartsStudent extends Student implements HogwartsPerson {
     private House house;
-    private boolean prefect;
-    private String[] teams;
+    private boolean pureBlood;
+    private String[] clubs;
 
-    public HogwartsStudent(String fullName, House house, boolean prefect, String[] teams) {
-        super(fullName);
+    public HogwartsStudent(int birthYear, String firstName, String middleName, String lastName, House house, boolean pureBlood, String[] clubs) {
+        super(birthYear, firstName, middleName, lastName);
         this.house = house;
-        this.prefect = prefect;
-        this.teams = teams;
+        this.pureBlood = pureBlood;
+        this.clubs = clubs;
     }
 
-    public HogwartsStudent(int enrollmentYear, String firstName, String middleName, String lastName, House house, boolean prefect, String[] teams) {
-        super(enrollmentYear, firstName, middleName, lastName);
-        this.house = house;
-        this.prefect = prefect;
-        this.teams = teams;
-    }
-
+    @Override
     public House getHouse() {
         return house;
     }
 
-    public void setHouse(House house) {
-        this.house = house;
-    }
-
-    public boolean isPrefect() {
-        return prefect;
-    }
-
-    public void setPrefect(boolean prefect) {
-        this.prefect = prefect;
-    }
-
-    public String[] getTeams() {
-        return teams;
-    }
-
-    public void setTeams(String[] teams) {
-        this.teams = teams;
+    @Override
+    public boolean isMuggleBorn() {
+        return false;
     }
 
     @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append("House: ").append(house).append("\n");
-        result.append("Prefect: ").append(prefect).append("\n");
-        result.append("Teams: ").append(Arrays.toString(teams)).append("\n");
-        return result.toString();
+    public String[] getActivities() {
+        return clubs;
+    }
+
+    @Override
+    public String getFirstName() {
+        return null;
+    }
+
+    @Override
+    public String getMiddleName() {
+        return null;
+    }
+
+    @Override
+    public String getLastName() {
+        return null;
     }
 }

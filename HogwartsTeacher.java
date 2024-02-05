@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class HogwartsTeacher extends Teacher {
+public class HogwartsTeacher extends Teacher implements HogwartsPerson {
     private House house;
     private boolean headOfHouse;
 
@@ -10,27 +10,33 @@ public class HogwartsTeacher extends Teacher {
         this.headOfHouse = headOfHouse;
     }
 
+    @Override
     public House getHouse() {
         return house;
     }
 
-    public void setHouse(House house) {
-        this.house = house;
-    }
-
-    public boolean isHeadOfHouse() {
-        return headOfHouse;
-    }
-
-    public void setHeadOfHouse(boolean headOfHouse) {
-        this.headOfHouse = headOfHouse;
+    @Override
+    public boolean isMuggleBorn() {
+        return false;
     }
 
     @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder(super.toString());
-        result.append("House: ").append(house).append("\n");
-        result.append("Head of House: ").append(headOfHouse).append("\n");
-        return result.toString();
+    public String[] getActivities() {
+        return new String[0];
+    }
+
+    @Override
+    public String getFirstName() {
+        return null;
+    }
+
+    @Override
+    public String getMiddleName() {
+        return null;
+    }
+
+    @Override
+    public String getLastName() {
+        return null;
     }
 }
