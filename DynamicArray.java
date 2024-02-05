@@ -1,24 +1,25 @@
 import java.util.Arrays;
 
 public class DynamicArray<T> {
-    private T[] array;
+    private Object[] array;
     private int size;
     private static final int INITIAL_SIZE = 10;
     private static final int GROW_SIZE = 10;
 
     public DynamicArray() {
-        array = new int[INITIAL_SIZE];
+        array = new Object[INITIAL_SIZE];
         size = 0;
     }
 
-    public void add(int element) {
+    public void add(T element) {
         ensureCapacity();
         array[size++] = element;
     }
 
-    public int get(int index) {
+    @SuppressWarnings("unchecked")
+    public T get(int index) {
         checkIndex(index);
-        return array[index];
+        return (T) array[index];
     }
 
     public int size() {
