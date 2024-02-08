@@ -4,8 +4,8 @@ public class HogwartsTeacher extends Teacher implements HogwartsPerson {
     private House house;
     private boolean headOfHouse;
 
-    public HogwartsTeacher(String fullName, String empType, Date employmentStart, House house, boolean headOfHouse) {
-        super(fullName, empType, employmentStart);
+    public HogwartsTeacher(String fullName, String empType, Date employmentStart, Date employmentEnd, House house, boolean headOfHouse) {
+        super(fullName, empType, employmentStart, employmentEnd);
         this.house = house;
         this.headOfHouse = headOfHouse;
     }

@@ -14,6 +14,12 @@ public class Course {
         this.students = students;
         this.materials = new ArrayList<>(Arrays.asList(materials));
     }
+    public Course(Subject subject, Student[] students, TeachingMaterial[] materials) {
+        this.subject = subject;
+        this.teacher = null;
+        this.students = students;
+        this.materials = new ArrayList<>(Arrays.asList(materials));
+    }
 
     public Subject getSubject() {
         return subject;
@@ -38,7 +44,11 @@ public class Course {
     public String toString() {
         StringBuilder result = new StringBuilder("Course:\n");
         result.append("Subject: ").append(subject.getName()).append("\n");
-        result.append("Teacher: ").append(teacher.getFullName()).append("\n");
+        if (teacher != null) {
+            result.append("Teacher: ").append(teacher.getFullName()).append("\n");
+        } else {
+            result.append("Teacher: No teacher assigned\n");
+        }
         result.append("Students: ").append(Arrays.toString(students)).append("\n");
         result.append("Materials: ").append(materials).append("\n");
         return result.toString();

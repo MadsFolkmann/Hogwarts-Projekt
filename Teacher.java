@@ -5,11 +5,11 @@ public class Teacher extends Person {
     private Date employmentStart;
     private Date employmentEnd;
 
-    public Teacher(String fullName, String empType, Date employmentStart) {
+    public Teacher(String fullName, String empType, Date employmentStart, Date employmentEnd) {
         super(fullName);
         this.empType = empType;
         this.employmentStart = employmentStart;
-        this.employmentEnd = null; 
+        this.employmentEnd = employmentEnd;
     }
 
     public String getEmpType() {
