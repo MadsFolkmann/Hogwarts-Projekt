@@ -109,7 +109,6 @@ public class UserInterface {
                 System.out.println("Invalid option. Please try again.");
         }
 
-        scanner.close();
     }
 
     private void sortData() {
